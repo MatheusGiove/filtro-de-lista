@@ -1,27 +1,54 @@
-# FiltroDeLista
+# Filtro de Lista
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.1.0.
+Projeto desenvolvido para o estudo dos conceitos básicos do Angular, como parte do curso **Angular: O Guia Definitivo** na Udemy.
 
-## Development server
+## Sobre o Projeto
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Aplicação que exibe uma lista de usuários com a possibilidade de filtrá-los por nome, status (ativo/inativo) e intervalo de datas. Os dados dos usuários são gerados com a biblioteca [Faker.js](https://fakerjs.dev/).
 
-## Code scaffolding
+## Conceitos Praticados
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+- **Components** — criação e organização de componentes reutilizáveis (`UsersList`, `UserDetails`, `Filter`)
+- **@Input / @Output** — comunicação entre componentes pai e filho
+- **Pipes customizados** — transformação de dados na view:
+  - `address` — formata o endereço completo
+  - `phone` — formata número de telefone (10 ou 11 dígitos)
+  - `status` — converte boolean em "Ativo" / "Inativo"
+  - `dashIfEmpty` — exibe traço quando o valor está vazio
+- **Angular Material** — componentes de UI (inputs, selects, tabela)
+- **Módulos** — organização com `ComponentsModule` e `PipeModule`
+- **Interfaces TypeScript** — tipagem com `IUser`, `IAddress` e `IFilterOptions`
 
-## Build
+## Tecnologias
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+- Angular 16
+- Angular Material 16
+- TypeScript 5
+- date-fns
+- Faker.js
 
-## Running unit tests
+## Como Executar
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+```bash
+# Instalar dependências
+npm install
 
-## Running end-to-end tests
+# Iniciar o servidor de desenvolvimento
+npm start
+```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Acesse `http://localhost:4200` no navegador.
 
-## Further help
+## Estrutura do Projeto
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```
+src/app/
+├── components/
+│   ├── filter/          # Componente de filtros (nome, status, datas)
+│   ├── user-details/    # Exibe os detalhes de um usuário
+│   └── users-list/      # Lista todos os usuários
+├── interfaces/          # Tipagens (IUser, IAddress, IFilterOptions)
+├── pipes/               # Pipes customizados
+├── data/                # Dados mockados com Faker.js
+└── utils/               # Funções utilitárias
+```
